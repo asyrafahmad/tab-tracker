@@ -1,0 +1,11 @@
+DOWNLOAD & SETUP
+1. Locate sqlite3 downloaded file into "C:\sqlite3"
+2. Setup GLOBAL Environment on "Path"
+
+CMD
+1.  find file location
+2. open CMD 
+3. command "sqlite3 mydb.db"
+4. command to create table "create table books (id INT PRIMARY KEY);"
+5. command to view tables created ".tables"
+6. command to get schema table ".schema book"

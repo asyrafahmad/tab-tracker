@@ -17,3 +17,6 @@ SERVER FOLDER
 1. mkdir server
 2. npm install --save nodemon eslint
 3. npm install --save express body-parser cors morgan
+4. npm install --save sequelize 
+5. npm install --save sqlite3                                       // https://www.youtube.com/watch?v=BomCx0jbwPY
+6. npm install --save joi                                           // for validating request body,query,parameter

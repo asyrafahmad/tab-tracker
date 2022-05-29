@@ -2,9 +2,11 @@
 <div>
     <h1>Register</h1>
     <br>
-    <input type="email" name="email" placeholder="email" v-model="email" />
+    <input type="email" name="email" placeholder="email" v-model="input_email" />
     <br>
-    <input type="password" name="password" placeholder="password" v-model="password"/>
+    <input type="password" name="password" placeholder="password" v-model="input_password"/>
+    <br/>
+    <div class="error" v-html="error" />
     <br/>
     <button @click="registerBtn">Register</button>
 </div>
@@ -16,33 +18,46 @@ import AuthenticationService from '@/services/AuthenticationService'
 export default {
   name: 'HelloWorld',
   watch: {
-    email (value) {
+    input_email (value) {
       console.log('Email has changed', value)
     },
-    password (value) {
+    input_password (value) {
       console.log('Password has changed', value)
     }
   },
   methods: {
     async registerBtn () {
-      const response = await AuthenticationService.register({
-        email: this.email,
-        password: this.password
-      })
-      console.log(response)
+      try {
+        const response = await AuthenticationService.register({
+          email: this.input_email,
+          password: this.input_password
+        })
+        console.log(response)
+      } catch (error) {
+        this.error = error.response.data.error
+      }
     }
   },
 
   data () {
     return {
-      email: 'abc',
-      password: '123'
+      input_email: '',
+      input_password: '',
+      error: null
     }
   },
   mounted () {
     setTimeout(() => {
-      this.email = 'Time out'
+      this.input_email = 'Time out'
     }, 2000)
   }
 }
 </script>
+
+<style scoped>
+
+.error {
+  error: red;
+}
+
+</style>
