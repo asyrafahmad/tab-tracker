@@ -15,4 +15,5 @@ CLIENT FOLDER
 
 SERVER FOLDER
 1. mkdir server
-2. npm install --save nodemon
+2. npm install --save nodemon eslint
+3. npm install --save express body-parser cors morgan
