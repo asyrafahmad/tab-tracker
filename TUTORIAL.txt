@@ -6,4 +6,13 @@ Get Execution Policy Computer Access 1st
 
 ----------------------------------------------------------------------
 
+CLIENT FOLDER
 1. npm install --global vue-cli
+2. npm update
+3. cd client
+4. npm run dev
+5. cd..
+
+SERVER FOLDER
+1. mkdir server
+2. npm install --save nodemon
