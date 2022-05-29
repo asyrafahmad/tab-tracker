@@ -1,0 +1,9 @@
+
+Get Execution Policy Computer Access 1st
+1. Get-ExecutionPolicy
+2. Set-ExecutionPolicy -Scope CurrentUser
+3. Get-ExecutionPolicy
+
+----------------------------------------------------------------------
+
+1. npm install --global vue-cli
