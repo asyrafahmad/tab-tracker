@@ -2,18 +2,15 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
         <div clas="pl-4 pr-4 pt-2 pb-2">
-          <h1>Register</h1>
+          <h1>Login</h1>
           <v-text-field label="Email" v-model="email"> </v-text-field>
           <br>
           <v-text-field label="Password" v-model="password"> </v-text-field>
           <br/>
           <div class="error" v-html="error" />
           <br/>
-          <v-btn class="cyan" dark @click="registerBtn">Register</v-btn>
+          <v-btn class="cyan" dark @click="loginBtn">Login</v-btn>
       </div>
       </div>
     </v-flex>
@@ -24,7 +21,7 @@
 import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
-  name: 'Register',
+  name: 'Login',
   watch: {
     input_email (value) {
       console.log('Email has changed', value)
@@ -34,9 +31,9 @@ export default {
     }
   },
   methods: {
-    async registerBtn () {
+    async loginBtn () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.input_email,
           password: this.input_password
         })
