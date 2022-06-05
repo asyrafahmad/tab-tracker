@@ -12,6 +12,7 @@ CLIENT FOLDER
 3. cd client
 4. npm run dev
 5. cd..
+6. npm install --save vuetify
 
 SERVER FOLDER
 1. mkdir server
