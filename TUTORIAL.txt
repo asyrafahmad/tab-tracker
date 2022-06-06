@@ -13,11 +13,16 @@ CLIENT FOLDER
 4. npm run dev
 5. cd..
 6. npm install --save vuetify
+7. npm install --save vuex                                          // view/action/state
+7. npm install --save vuex -router-sync                             //
 
 SERVER FOLDER
 1. mkdir server
 2. npm install --save nodemon eslint
-3. npm install --save express body-parser cors morgan
+3. npm install --save express body-parser cors morgan  
 4. npm install --save sequelize 
 5. npm install --save sqlite3                                       // https://www.youtube.com/watch?v=BomCx0jbwPY
 6. npm install --save joi                                           // for validating request body,query,parameter
+7. npm install --save jsonwebtoken                                  // for login token
+8. npm install --save bcrypt-nodejs                                 // for encrypt password
+9. npm install --save bluebird      

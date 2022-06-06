@@ -4,9 +4,9 @@
       <div class="white elevation-2">
         <div clas="pl-4 pr-4 pt-2 pb-2">
           <h1>Login</h1>
-          <v-text-field label="Email" v-model="email"> </v-text-field>
+          <v-text-field label="Email" type="email" v-model="input_email"> </v-text-field>
           <br>
-          <v-text-field label="Password" v-model="password"> </v-text-field>
+          <v-text-field label="Password" type="password" autocomplete="new-password" v-model="input_password"> </v-text-field>
           <br/>
           <div class="error" v-html="error" />
           <br/>
@@ -38,6 +38,9 @@ export default {
           password: this.input_password
         })
         console.log(response)
+
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -52,9 +55,9 @@ export default {
     }
   },
   mounted () {
-    setTimeout(() => {
-      this.input_email = 'Time out'
-    }, 2000)
+    // setTimeout(() => {
+    //   this.input_email = 'Time out'
+    // }, 2000)
   }
 }
 </script>
