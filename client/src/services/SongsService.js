@@ -4,10 +4,10 @@ export default {
   index () {
     return Api().get('songs')
   },
-  show (songId) {
-    return Api().get(`songs/${songId}`)
+  createClient (song) {
+    return Api().post('songs', song)
   },
-  create (song) {
-    return Api().post('create', song)
+  showClient (songId) {
+    return Api().get(`songs/${songId}`)
   }
 }

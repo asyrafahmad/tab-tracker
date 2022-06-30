@@ -9,6 +9,9 @@ import store from '@/store/store'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
+import VueYouTubeEmbed from 'vue-youtube-embed'
+Vue.use(VueYouTubeEmbed)
+
 Vue.config.productionTip = false
 
 Vue.use(Vuetify, {

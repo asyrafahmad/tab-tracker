@@ -1,7 +1,7 @@
 const {Song}  = require('../models')
 
 module.exports = {
-    async index (req,res) {
+    async indexServer (req,res) {
         try{
             const song = await Song.findAll({
                 limit: 10
@@ -16,23 +16,24 @@ module.exports = {
             console.log('failed')
         }
     },
-    async show (req,res) {
+    async showServer (req,res) {
         try{
-            const song = await Song.findByID(req.params.id)
+            const song = await Song.findByPk(req.params.songId)
             res.send(song)
             console.log('Successfully find song ID')
         }catch (err){
             res.status(500).send({
-                error: "An error has occured trying to fetch the songs"
+                error: "An error has occured trying to fetch the songs based on ID"
             })
-            
             console.log('failed')
         }
     },
-    async create (req,res) {
+    async createServer (req,res) {
         try{
             const song = await Song.create(req.body)
-            res.send(song)
+            // const songJSON = song.toJSON()                      // JSON format
+            const songJSON = JSON.stringify(song)           // string format
+            res.send(songJSON)
             console.log('Successfully create new song')
         }catch (err){
             res.status(500).send({

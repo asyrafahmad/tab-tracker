@@ -12,12 +12,12 @@ module.exports = (app) => {
     )
     
     app.get('/songs',
-        SongsController.index
+        SongsController.indexServer
     )
     app.get('/songs/:songId',
-        SongsController.show
+        SongsController.showServer
     )
     app.post('/songs',
-        SongsController.create
+        SongsController.createServer
     )
 }

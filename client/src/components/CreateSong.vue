@@ -5,6 +5,7 @@
         <v-text-field label="Title" required :rules="[required]" v-model="song.title"></v-text-field>
         <v-text-field label="Artist" v-model="song.artist"></v-text-field>
         <v-text-field label="Genre" v-model="song.genre"></v-text-field>
+        <v-text-field label="Album" v-model="song.album"></v-text-field>
         <v-text-field label="Album Image Url" v-model="song.albumImageUrl"></v-text-field>
         <v-text-field label="Youtube ID" v-model="song.youtubeId"></v-text-field>
       </Panel>
@@ -18,7 +19,7 @@
       <div class="danger-alert" v-if="error">
         {{error}}
       </div><br>
-      <v-btn dark class="cyan" @click="create">Create Song</v-btn>
+      <v-btn dark class="cyan" @click="createSongBtn">Create Song</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -44,8 +45,9 @@ export default {
     }
   },
   methods: {
-    async create () {
+    async createSongBtn () {
       this.error = null
+      // Note: Input checking validation
       const areAllFieldsFilledIn = Object
         .keys(this.song)
         .every(key => !!this.song[key])
@@ -56,7 +58,7 @@ export default {
       }
       // call API
       try {
-        await SongsService.create(this.song)
+        await SongsService.createClient(this.song)
         this.$router.push({ // navigate to '/songs' page
           name: 'songs'
         })

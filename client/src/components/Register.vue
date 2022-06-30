@@ -6,6 +6,8 @@
           <v-text-field label="Email" v-model="input_email"> </v-text-field>
           <br>
           <v-text-field label="Password" type="password" v-model="input_password"> </v-text-field>
+          <br>
+          <v-btn class="cyan" dark @click="registerBtn">Register</v-btn>
         </form>
       </Panel>
     </v-flex>
