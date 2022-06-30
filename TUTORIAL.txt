@@ -14,7 +14,7 @@ CLIENT FOLDER
 5. cd..
 6. npm install --save vuetify
 7. npm install --save vuex                                          // view/action/state
-7. npm install --save vuex -router-sync                             //
+7. npm install --save vuex-router-sync                              //
 
 SERVER FOLDER
 1. mkdir server
@@ -25,4 +25,4 @@ SERVER FOLDER
 6. npm install --save joi                                           // for validating request body,query,parameter
 7. npm install --save jsonwebtoken                                  // for login token
 8. npm install --save bcrypt-nodejs                                 // for encrypt password
-9. npm install --save bluebird      
+9. npm install --save bluebird                                      // fpr Promise

@@ -1,29 +1,20 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
-        <div clas="pl-4 pr-4 pt-2 pb-2">
-          <h1>Register</h1>
-          <form name="tab-tracker-form" autocomplete="off">
-            <v-text-field label="Email" v-model="input_email"> </v-text-field>
-            <br>
-            <v-text-field label="Password" type="password" v-model="input_password"> </v-text-field>
-          </form>
-          <br/>
-          <div class="error" v-html="error" />
-          <br/>
-          <v-btn class="cyan" dark @click="registerBtn">Register</v-btn>
-      </div>
-      </div>
+      <Panel title="Register">
+        <form name="tab-tracker-form" autocomplete="off">
+          <v-text-field label="Email" v-model="input_email"> </v-text-field>
+          <br>
+          <v-text-field label="Password" type="password" v-model="input_password"> </v-text-field>
+        </form>
+      </Panel>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 
 export default {
   name: 'Register',
@@ -50,6 +41,9 @@ export default {
       }
     }
   },
+  components: {
+    Panel
+  },
 
   data () {
     return {
@@ -69,7 +63,7 @@ export default {
 <style scoped>
 
 .error {
-  error: red;
+  color: red;
 }
 
 </style>

@@ -1,0 +1,7 @@
+1. https://material.io/
+2. https://pinia.vuejs.org/introduction.html
+3. https://redux.js.org/
+4. https://vuex.vuejs.org/
+5. https://vuejs.org/guide/introduction.html
+6. https://vuetifyjs.com/en/components/toolbars/
+7. https://joi.dev/api/?v=17.6.0#example
