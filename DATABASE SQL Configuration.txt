@@ -3,7 +3,7 @@ DOWNLOAD & SETUP
 2. Setup GLOBAL Environment on "Path"
 
 CMD
-1.  find file location
+1. find file location
 2. open CMD 
 3. command "sqlite3 mydb.db"
 4. command to create table "create table books (id INT PRIMARY KEY);"

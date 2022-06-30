@@ -3,12 +3,12 @@ const jwt = require('jsonwebtoken')             // js package from node module
 const config = require ('../config/config')
 
 function jwtSignUser (user) {
-    // const ONE_WEEK = 60 * 60 * 24 * 7
-    // return jwt.sign(user, config.authentication.jwtSecret, {
-    //     expiresIn: ONE_WEEK
-    // })
+    const ONE_WEEK = 60 * 60 * 24 * 7
+    return jwt.sign(user, config.authentication.jwtSecret, {
+        expiresIn: ONE_WEEK
+    })
 
-    return jwt.sign(user, config.authentication.jwtSecret)
+    // return jwt.sign(user, config.authentication.jwtSecret)
 }
 
 module.exports = {

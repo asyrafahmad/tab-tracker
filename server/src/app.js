@@ -1,16 +1,16 @@
-console.log('Start');
+console.log('Start Server');
 
-const express = require('express')
+const express = require('express')            // server
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const morgan = require('morgan')
+const morgan = require('morgan')              // HTTP request logger middleware for node.js
 
 const {sequelize} = require('./models')
 const config = require('./config/config')
 
 const app = express()
 
-// --------------------------------------------------
+// ---------------------------------------------------------------------------------------------------
 
 app.use(morgan('combined'))
 app.use(bodyParser.json())

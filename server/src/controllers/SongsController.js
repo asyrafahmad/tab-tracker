@@ -18,7 +18,7 @@ module.exports = {
     },
     async showServer (req,res) {
         try{
-            const song = await Song.findByPk(req.params.songId)
+            const song = await Song.findByPk(req.params.songId)    // findByPk (NEW) / findById (OLD)
             res.send(song)
             console.log('Successfully find song ID')
         }catch (err){

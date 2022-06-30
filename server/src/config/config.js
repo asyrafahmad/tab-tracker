@@ -16,7 +16,7 @@ module.exports = {
     //     jwtSecret: process.env.JWT_SECRET || 'secret'
     // }
 
-    //mysql
+    //  MYSQL
     port: process.env.PORT || 8081,
     db : {
         database: process.env.DB_NAME || 'tabtracker',
