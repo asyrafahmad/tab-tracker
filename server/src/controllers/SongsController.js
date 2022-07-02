@@ -42,6 +42,23 @@ module.exports = {
             
             console.log('failed')
         }
+    },
+    async putServer (req,res) {
+        try{
+            const song = await Song.update(req.body, {
+              where: {
+                id: req.params.songId
+              }
+            })
+            res.send(song)
+            console.log('Successfully update song')
+        }catch (err){
+            res.status(500).send({
+                error: "An error has occured trying to update the song"
+            })
+            
+            console.log('failed')
+        }
     }
     
 }

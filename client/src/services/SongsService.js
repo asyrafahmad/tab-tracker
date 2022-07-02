@@ -9,5 +9,8 @@ export default {
   },
   showClient (songId) {
     return Api().get(`songs/${songId}`)
+  },
+  putClient (song) {
+    return Api().put(`songs/${song.id}`, song)
   }
 }

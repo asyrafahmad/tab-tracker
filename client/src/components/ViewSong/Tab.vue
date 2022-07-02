@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-.textarea {
+textarea {
     width: 100%;
     font-family: monospace;
     height: 600px;
