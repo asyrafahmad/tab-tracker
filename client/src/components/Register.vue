@@ -1,7 +1,7 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <Panel title="Register">
+      <panel title="Register">
         <form name="tab-tracker-form" autocomplete="off">
           <v-text-field label="Email" v-model="input_email"> </v-text-field>
           <br>
@@ -9,14 +9,13 @@
           <br>
           <v-btn class="cyan" dark @click="registerBtn">Register</v-btn>
         </form>
-      </Panel>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
 
 export default {
   name: 'Register',
@@ -36,15 +35,12 @@ export default {
           password: this.input_password
         })
         console.log(response)
-        this.$store.dispatch('setToken', response.data.token)
-        this.$store.dispatch('setUser', response.data.user)
+        this.$store.dispatch('setToken', response.data.token) // vuex
+        this.$store.dispatch('setUser', response.data.user) // vuex
       } catch (error) {
         this.error = error.response.data.error
       }
     }
-  },
-  components: {
-    Panel
   },
 
   data () {

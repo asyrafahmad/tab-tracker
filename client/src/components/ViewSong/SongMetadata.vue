@@ -1,5 +1,5 @@
 <template>
-    <Panel title="Song Metadata">
+    <panel title="Song Metadata">
         <v-layout>
             <v-flex xs6>
                 <div class="song-title">
@@ -21,11 +21,10 @@
                 {{song.album}}
             </v-flex>
         </v-layout>
-    </Panel>
+    </panel>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 
 export default {
   props: [
@@ -35,9 +34,6 @@ export default {
     navigateTo (route) {
       this.$router.push(route)
     }
-  },
-  components: {
-    Panel
   }
 }
 </script>

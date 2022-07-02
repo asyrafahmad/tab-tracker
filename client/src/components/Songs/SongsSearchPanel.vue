@@ -1,4 +1,7 @@
 <template>
+  <panel title="Search Song">
+
+  </panel>
 </template>
 
 <script>

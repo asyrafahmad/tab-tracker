@@ -8,12 +8,15 @@ import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
-
 import VueYouTubeEmbed from 'vue-youtube-embed'
-Vue.use(VueYouTubeEmbed)
+import Panel from '@/components/Globals/Panel'
 
 Vue.config.productionTip = false
 
+// Set Globally
+Vue.component('panel', Panel)
+
+Vue.use(VueYouTubeEmbed)
 Vue.use(Vuetify, {
   theme: {
     'primary': '#1976D2'

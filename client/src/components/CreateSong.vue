@@ -1,21 +1,21 @@
 <template>
   <v-layout>
     <v-flex xs4>
-      <Panel title="Song Metadata">
+      <panel title="Song Metadata">
         <v-text-field label="Title" required :rules="[required]" v-model="song.title"></v-text-field>
         <v-text-field label="Artist" v-model="song.artist"></v-text-field>
         <v-text-field label="Genre" v-model="song.genre"></v-text-field>
         <v-text-field label="Album" v-model="song.album"></v-text-field>
         <v-text-field label="Album Image Url" v-model="song.albumImageUrl"></v-text-field>
         <v-text-field label="Youtube ID" v-model="song.youtubeId"></v-text-field>
-      </Panel>
+      </panel>
     </v-flex>
 
     <v-flex xs8>
-      <Panel title="Song Structure" class="ml-4">
+      <panel title="Song Structure" class="ml-4">
         <v-text-field label="Tab" multi-line v-model="song.tab"></v-text-field>
         <v-text-field label="Lyrics" v-model="song.lyrics"></v-text-field>
-      </Panel>
+      </panel>
       <div class="danger-alert" v-if="error">
         {{error}}
       </div><br>
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 export default {
   data () {
@@ -66,9 +65,6 @@ export default {
         console.log(err)
       }
     }
-  },
-  components: {
-    Panel
   }
 }
 </script>
