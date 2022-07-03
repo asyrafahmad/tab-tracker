@@ -13,15 +13,25 @@ const sequelize = new Sequelize(
 )
 
 fs
-    .readdirSync(__dirname)                         // read current directory
-    .filter((file) =>
-        file !== 'index.js'
-    )
-    .forEach((file) => {
-        // const model =  sequelize.import(path.join(__dirname, file))                          // old version
-        const model =  require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)      // new version
-        db[model.name] = model
-    })
+  .readdirSync(__dirname)                         // read current directory
+  .filter((file) =>
+    file !== 'index.js'
+  )
+  .forEach((file) => {
+    // const model =  sequelize.import(path.join(__dirname, file))                          // old version
+    const model =  require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)      // new version
+    db[model.name] = model
+  })
+
+/*
+Note:
+    Object.keys() = method returns an array
+*/
+Object.keys(db).forEach(function (modelName) {
+    if ('associate' in db[modelName]) {
+        db[modelName].associate(db)
+    }
+})
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
