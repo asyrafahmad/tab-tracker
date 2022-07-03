@@ -2,7 +2,7 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <songs-search-panel />
-      <songs-panel />
+      <songs-panel class="mt-2"/>
     </v-flex>
   </v-layout>
 </template>
@@ -29,7 +29,7 @@ export default {
   },
   async mounted () {
     // do a request to the backend for all the songs
-    this.songs = (await SongsService.index()).data
+    this.songs = (await SongsService.indexClient()).data
   }
 }
 </script>

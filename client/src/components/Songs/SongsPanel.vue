@@ -41,9 +41,17 @@ export default {
       this.$router.push(route)
     }
   },
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.indexClient(value)).data // pass url value '/songs?search="{value}"' to SongsService
+      }
+    }
+  },
   async mounted () {
     // do a request to the backend for all the songs
-    this.songs = (await SongsService.index()).data
+    this.songs = (await SongsService.indexClient()).data
   }
 }
 </script>
