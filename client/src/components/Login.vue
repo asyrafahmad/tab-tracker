@@ -8,7 +8,7 @@
           <br>
           <v-text-field label="Password" type="password" autocomplete="new-password" v-model="input_password"> </v-text-field>
           <br/>
-          <div class="error" v-html="error" />
+          <div class="danger-alert" v-html="error" />
           <br/>
           <v-btn class="cyan" dark @click="loginBtn">Login</v-btn>
       </div>
@@ -41,6 +41,9 @@ export default {
 
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$store.push({
+          name: 'songs'
+        })
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -63,9 +66,4 @@ export default {
 </script>
 
 <style scoped>
-
-.error {
-  color: red;
-}
-
 </style>

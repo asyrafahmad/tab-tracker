@@ -1,7 +1,7 @@
 <template>
   <panel title="Songs">
     <!-- <router-link  :to="{name: 'songs-create'}"> -->
-        <v-btn class="cyan accent-2" fab light medium absolute right middle @click="navigateTo({name: 'songs-create'})">
+        <v-btn class="cyan accent-2" fab light medium absolute right middle :to="{name: 'songs-create'}">
             <!-- <v-icon>add</v-icon> -->
         </v-btn>
     <!-- </router-link> -->
@@ -17,7 +17,7 @@
             <div class="song-genre">
                 {{song.genre}}
             </div>
-            <v-btn dark class="" @click="navigateTo({name: 'song', params: {songId: song.id}})" >View</v-btn>
+            <v-btn dark class="" :to="{name: 'song', params: {songId: song.id}}" >View</v-btn>
         </v-flex>
         <v-flex xs6>
             <img class="album-image" :src="song.albumImageUrl" />
@@ -34,11 +34,6 @@ export default {
   data () {
     return {
       songs: null
-    }
-  },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
     }
   },
   watch: {

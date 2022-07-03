@@ -14,8 +14,9 @@ CLIENT FOLDER
 5. cd..
 6. npm install --save vuetify
 7. npm install --save vuex                                          // view/action/state
-7. npm install --save vuex-router-sync                              //
-8. npm i -S vue-youtube-embed
+8. npm install --save vuex-router-sync                              //
+9. npm i -S vue-youtube-embed
+10.npm install --save lodash
 
 SERVER FOLDER
 1. mkdir server

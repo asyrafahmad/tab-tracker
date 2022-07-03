@@ -7,6 +7,8 @@
           <br>
           <v-text-field label="Password" type="password" v-model="input_password"> </v-text-field>
           <br>
+          <div class="danger-alert" v-html="error" />
+          <br>
           <v-btn class="cyan" dark @click="registerBtn">Register</v-btn>
         </form>
       </panel>
@@ -37,6 +39,9 @@ export default {
         console.log(response)
         this.$store.dispatch('setToken', response.data.token) // vuex
         this.$store.dispatch('setUser', response.data.user) // vuex
+        this.$store.push({
+          name: 'songs'
+        }) // vuex
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -59,9 +64,4 @@ export default {
 </script>
 
 <style scoped>
-
-.error {
-  color: red;
-}
-
 </style>

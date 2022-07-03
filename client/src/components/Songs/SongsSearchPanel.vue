@@ -20,11 +20,10 @@ export default {
         // with query, resulting in /register?plan=private
         router.push({ path: 'register', query: { plan: 'private' }})
     */
-    search: _.debounce(async function (value) {        
+    search: _.debounce(async function (value) {
       const route = {
         name: 'songs'
       }
-      
       if (this.search !== '') {
         route.query = {
           search: this.search
@@ -32,7 +31,6 @@ export default {
       }
       this.$router.push(route)
       console.log(value)
-
     }, 700),
 
     '$route.query.search': { // search on url will display in text field

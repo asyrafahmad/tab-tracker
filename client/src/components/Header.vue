@@ -1,27 +1,25 @@
 <template>
   <v-toolbar fixed class="cyan" dark>
-      <v-toolbar-title class="mr-4">
-          <span class="home" @click="navigatTo({ name:'root' })">
+      <!-- Old version navigation router link -->
+      <!-- <v-toolbar-title class="mr-4">
+          <span class="home" @click="navigatTo({ name:'songs' })">
             TabTracker
           </span>"
         TabTracker
+      </v-toolbar-title> -->
+
+      <!-- New version navigation router link -->
+      <v-toolbar-title class=mt-4>
+        <router-link tag="span" class="home" :to="{ name:'songs' }">
+            TabTracker
+        </router-link>
       </v-toolbar-title>
 
-      <!-- <v-toolbar-items>
-        <v-btn flat dark @click="navigateTo({ to:'songs' })">
-            Login
-        </v-btn>
-      </v-toolbar-items> -->
-
-      <!-- <v-spacer>
-
-      </v-spacer> -->
-
       <v-toolbar-items>
-            <v-btn v-if="!$store.state.isUserLoggedIn" flat dark @click="navigateTo({ to:'login' })">
+            <v-btn v-if="!$store.state.isUserLoggedIn" flat dark :to="{ name:'login' }">
                 Login
             </v-btn>
-            <v-btn v-if="!$store.state.isUserLoggedIn" flat dark @click="navigateTo({ to:'register' })">
+            <v-btn v-if="!$store.state.isUserLoggedIn" flat dark :to="{ name:'register' }">
                 Sign Up
             </v-btn>
             <v-btn v-if="!$store.state.isUserLoggedIn" flat dark @click="logout">
@@ -34,16 +32,17 @@
 <script>
 export default {
   methods: {
-    navigateTo (route) {
-      this.$route.push(route)
-    },
+    // * Old version navigation router link *
+    // navigateTo (route) {
+    //   this.$route.push(route)
+    // },
     logout () {
       this.$store.dispatch('setToken; null')
       this.$store.dispatch('setUser; null')
 
       // TODO: redirect to homepage
       this.$router.push({
-        name: 'root'
+        name: 'songs'
       })
     }
   }
