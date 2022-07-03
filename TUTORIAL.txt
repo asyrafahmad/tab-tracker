@@ -28,3 +28,4 @@ SERVER FOLDER
 7. npm install --save jsonwebtoken                                  // for login token
 8. npm install --save bcrypt-nodejs                                 // for encrypt password
 9. npm install --save bluebird                                      // fpr Promise
+10.npm run seed 
