@@ -1,1 +1,7 @@
 1. eslint = automate search any syntax error 
+2. localStorage -- it is permanently stored locally unless you take the initiative to delete it;
+3. sessionStorage -- it is stored until the current page is closed and is not associated with other tab pages;
+
+LOCATION
+1. LOG = C:\Users\Acer\AppData\Local\npm-cache\_logs\2022-07-04T12_47_26_403Z-debug-0.log
+2. REPORT = C:\Users\Acer\AppData\Local\npm-cache\eresolve-report.txt

@@ -25,7 +25,7 @@ fs
 
 /*
 Note:
-    Object.keys() = method returns an array
+    Object.keys() = method returns an array of a given object (object to array)
 */
 Object.keys(db).forEach(function (modelName) {
     if ('associate' in db[modelName]) {

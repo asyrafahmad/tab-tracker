@@ -1,3 +1,4 @@
+--------------- Tab-Tracker Application (Vue@2) ---------------------
 
 Get Execution Policy Computer Access 1st
 1. Get-ExecutionPolicy
@@ -17,6 +18,8 @@ CLIENT FOLDER
 8. npm install --save vuex-router-sync                              //
 9. npm i -S vue-youtube-embed
 10.npm install --save lodash
+11.npm install --save vuex@3
+12.npm install --save vuex-persistedstate                           // Persist and rehydrate your Vuex state between page reloads. (store state session in localStorage)
 
 SERVER FOLDER
 1. mkdir server
@@ -29,3 +32,8 @@ SERVER FOLDER
 8. npm install --save bcrypt-nodejs                                 // for encrypt password
 9. npm install --save bluebird                                      // fpr Promise
 10.npm run seed 
+
+----------------------------------------------------------------------
+
+NODE
+node --trace-deprecation ...

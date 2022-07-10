@@ -41,7 +41,7 @@ export default {
         this.$store.dispatch('setUser', response.data.user) // vuex
         this.$store.push({
           name: 'songs'
-        }) // vuex
+        })
       } catch (error) {
         this.error = error.response.data.error
       }
