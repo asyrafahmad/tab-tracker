@@ -21,10 +21,26 @@ module.exports = {
     },
     async postServer (req,res) {
         try{
-            const bookmark = req.body
+            const {songId, userId} = req.body
+            const bookmark = await Bookmark.findOne({
+                where:  {
+                    SongId: songId,
+                    UserId: userId
+                }
+            })
 
-            await Bookmark.create(bookmark)
-            res.send(bookmark)
+            if (bookmark) {
+                return res.status(400).send({
+                    error: 'You already have this set as a bookmark'
+                })
+            }
+
+            const newBookmark = await Bookmark.create({
+                SongId: songId,
+                UserId: userId
+            })
+            
+            res.send(newBookmark)
             console.log('Successfully create bookmark')
         }catch (err){
             res.status(500).send({

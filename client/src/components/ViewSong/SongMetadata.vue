@@ -14,11 +14,11 @@
                 <v-btn dark class="cyan" :to="{name: 'song-edit', params: () => { return {songId:song.id}}}" >
                     Edit
                 </v-btn>
-                <v-btn v-if="isUserLoggedIn && !isBookmarked" dark class="cyan" @click="setAsUnbookmark" >
-                    Bookmark
+                <v-btn v-if="isUserLoggedIn && !bookmark" dark class="cyan" @click="setAsBookmark" >
+                    Set As  Bookmark
                 </v-btn>
-                <v-btn v-if="isUserLoggedIn && isBookmarked" dark class="cyan" @click="setAsBookmark" >
-                    Unbookmark
+                <v-btn v-if="isUserLoggedIn && bookmark" dark class="cyan" @click="unsetAsBookmark" >
+                    Unset As Bookmark
                 </v-btn>
             </v-flex>
             <v-flex xs6>
@@ -37,7 +37,7 @@ import BookmarksService from '@/services/BookmarksService'
 export default {
   data () {
     return {
-      isBookmarked: false
+      bookmark: null
     }
   },
   props: [
@@ -48,36 +48,37 @@ export default {
       'isUserLoggedIn'
     ])
   },
-  async mounted () {
-    try {
-      const bookmark = (await BookmarksService.indexClient({
-        songId: this.song.id,
-        userId: this.$store.state.user.id
-      })).data
-      this.isBookmarked = !!bookmark
-      console.log('bookmark: ', this.isBookmarked)
-    } catch (err) {
-      console.log('Mounted'.err)
+  watch: {
+    async song () {
+      try {
+        this.bookmark = (await BookmarksService.indexClient({
+          songId: this.song.id
+          // userId: this.$store.state.user.id
+        })).data
+        // this.isBookmarked = !!this.bookmark
+        console.log('bookmark: ', this.isBookmarked)
+      } catch (err) {
+        console.log('Mounted'.err)
+      }
     }
   },
   methods: {
     async setAsBookmark () {
       try {
-        await BookmarksService.postClient({
+        this.bookmark = (await BookmarksService.postClient({
           songId: this.song.id,
           userId: this.$store.state.user.id
-        })
+        })).data
         console.log('set as bookmark')
       } catch (err) {
         console.log(err)
+        console.log('fail to set as bookmark')
       }
     },
-    async setAsUnbookmark () {
+    async unsetAsBookmark () {
       try {
-        await BookmarksService.deleteClient({
-          songId: this.song.id,
-          userId: this.$store.state.user.id
-        })
+        await BookmarksService.deleteClient(this.bookmark.id)
+        this.bookmark = null
         console.log('set as unbookmark')
       } catch (err) {
         console.log(err)

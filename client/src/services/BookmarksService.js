@@ -7,11 +7,9 @@ export default {
     })
   },
   postClient (bookmark) {
-    return Api().post('bookmarks', {
-      params: bookmark
-    })
+    return Api().post('bookmarks', bookmark)
   },
   deleteClient (bookmarkId) {
-    return Api().get(`bookmarks/${bookmarkId}`)
+    return Api().delete(`bookmarks/${bookmarkId}`)
   }
 }
