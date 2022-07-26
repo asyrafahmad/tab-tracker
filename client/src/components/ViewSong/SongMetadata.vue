@@ -45,16 +45,22 @@ export default {
   ],
   computed: {
     ...mapState([
-      'isUserLoggedIn'
+      'isUserLoggedIn',
+      'user'
     ])
   },
   watch: {
     async song () {
       try {
         this.bookmark = (await BookmarksService.indexClient({
-          songId: this.song.id
-          // userId: this.$store.state.user.id
+          songId: this.song.id,
+          userId: this.user.id
         })).data
+
+        if (this.bookmark.length) {
+          this.bookmark = bookmarks[0]
+        }
+
         // this.isBookmarked = !!this.bookmark
         console.log('bookmark: ', this.isBookmarked)
       } catch (err) {

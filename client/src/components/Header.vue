@@ -10,7 +10,7 @@
 
       <!-- New version navigation router link -->
       <v-toolbar-title class=mt-4>
-        <router-link tag="span" class="home" :to="{ name:'songs' }">
+        <router-link class="home" :to="{ name:'songs' }">
             TabTracker
         </router-link>
       </v-toolbar-title>

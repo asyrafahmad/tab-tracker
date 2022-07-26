@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -17,12 +18,13 @@ Vue.config.productionTip = false
 Vue.component('panel', Panel)
 
 Vue.use(VueYouTubeEmbed)
-Vue.use(Vuetify, {
+
+const opts = {
   theme: {
     'primary': '#1976D2'
   }
 }
-)
+Vue.use(Vuetify)
 
 sync(store, router)
 
@@ -32,5 +34,6 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  vuetify: new Vuetify(opts)
 })

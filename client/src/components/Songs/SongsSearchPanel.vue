@@ -30,7 +30,7 @@ export default {
         }
       }
       this.$router.push(route)
-      console.log(value)
+      // console.log(value)
     }, 700),
 
     '$route.query.search': { // search on url will display in text field
